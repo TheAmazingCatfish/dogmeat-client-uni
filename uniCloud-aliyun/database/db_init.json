@@ -1,0 +1,1175 @@
+// 在本文件中可配置云数据库初始化，数据格式见：https://uniapp.dcloud.io/uniCloud/cf-database?id=db_init
+// 编写完毕后对本文件点右键，可按配置规则创建表和添加数据
+{
+	"opendb-mall-goods": {
+		"data": [{
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg",
+			"pictures": "",
+			"price": "2899",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "252",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg",
+			"pictures": "",
+			"price": "2899",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "252",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg",
+			"pictures": "",
+			"price": "2899",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "252",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg",
+			"pictures": "",
+			"price": "2899",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "252",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg",
+			"pictures": "",
+			"price": "2899",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "252",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg",
+			"pictures": "",
+			"price": "2899",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "252",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "", // 分类id
+			"sn": "", // 商品的唯一货号
+			"name": "Apple iPhone X 256GB 深空灰色 移动联通电信4G手机", // 商品名称
+			"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
+			"description": "", // 商品详细描述
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+			"pictures": "", // 商品详情页的banner图地址
+			"price": "9999", // 商品价格
+			"stock": "999999", // 库存数量
+			"monthly_sales": "640", // 月销量
+			"total_sales": "28512", // 总销量
+			"comment_count": "980021", // 累计评论数
+			"physical": true, // 是否实物
+			"up_for_sale": true, // 是否上架销售
+			"sold_separately": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
+			"best_seller": false, // 是否精品
+			"new": true, // 是否新品
+			"hot": false, // 是否热销
+			"added_date": "2020-8-26 09:37:21", // 上架时间
+			"last_modified_date": "2020-8-26 09:37:21", // 最后修改时间
+			"seller_note": "", //商家备注，仅商家可见
+			"shop_name": "京东商城网上自营专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "自营"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
+			"pictures": "",
+			"price": "3499",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "手机专卖店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MupxT2CH/A）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg",
+			"pictures": "",
+			"price": "12999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "156",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "北京京东自营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg",
+			"pictures": "",
+			"price": "999",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "45",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "上海手机直营店",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "秒杀"
+		}, {
+			"category_id": "",
+			"sn": "",
+			"name": "微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）",
+			"keywords": "手机,iPhone",
+			"description": "",
+			"thumbnail": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
+			"pictures": "",
+			"price": "8888",
+			"stock": "999999",
+			"monthly_sales": "640",
+			"total_sales": "28512",
+			"comment_count": "12",
+			"physical": true,
+			"up_for_sale": true,
+			"sold_separately": true,
+			"best_seller": false,
+			"new": true,
+			"hot": false,
+			"added_date": "2020-8-26 09:37:21",
+			"last_modified_date": "2020-8-26 09:37:21",
+			"seller_note": "",
+			"shop_name": "京东商城",
+			"tags": ["手机", "iPhone"],
+			"special_tag": "优惠"
+		}],
+		"schema": {
+			"bsonType": "object",
+			"required": [
+				"sn",
+				"name",
+				"stock",
+				"monthly_sales",
+				"total_sales",
+				"comment_count",
+				"physical",
+				"up_for_sale",
+				"sold_separately",
+				"best_seller",
+				"new",
+				"hot"
+			],
+			"permission": {
+				"read": "doc.up_for_sale == true",
+				"create": false,
+				"update": false,
+				"delete": false
+			},
+			"properties": {
+				"_id": {
+					"description": "存储文档 ID（商品 ID），系统自动生成"
+				},
+				"category_id": {
+					"bsonType": "string",
+					"description": "分类 id，参考`opendb-mall-categories`表"
+				},
+				"sn": {
+					"bsonType": "string",
+					"description": "商品的唯一货号",
+					"title": "货号"
+				},
+				"price": {
+					"bsonType": "int",
+					"description": "商品价格"
+				},
+				"name": {
+					"bsonType": "string",
+					"description": "商品名称",
+					"title": "名称"
+				},
+				"keywords": {
+					"bsonType": "string",
+					"description": "商品关键字，为搜索引擎收录使用",
+					"title": "关键字"
+				},
+				"description": {
+					"bsonType": "string",
+					"description": "商品详细描述",
+					"title": "详细描述"
+				},
+				"thumbnail": {
+					"bsonType": "string",
+					"description": "商品缩略图，用于在列表或搜索结果中预览显示",
+					"title": "缩略图地址",
+					"pattern": "^(http://|https://|/|./|@/)\\S"
+				},
+				"pictures": {
+					"bsonType": "array",
+					"description": "商品详情页的banner图地址"
+				},
+				"stock": {
+					"bsonType": "int",
+					"description": "库存数量",
+					"title": "库存数量"
+				},
+				"monthly_sales": {
+					"bsonType": "int",
+					"description": "月销量"
+				},
+				"total_sales": {
+					"bsonType": "int",
+					"description": "总销量"
+				},
+				"comment_count": {
+					"bsonType": "int",
+					"description": "累计评论数"
+				},
+				"physical": {
+					"bsonType": "bool",
+					"description": "是否实物",
+					"title": "是否为实物"
+				},
+				"up_for_sale": {
+					"bsonType": "bool",
+					"description": "是否上架销售",
+					"title": "是否上架"
+				},
+				"sold_separately": {
+					"bsonType": "bool",
+					"description": "是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售"
+				},
+				"best_seller": {
+					"bsonType": "bool",
+					"description": "是否精品"
+				},
+				"new": {
+					"bsonType": "bool",
+					"description": "是否新品",
+					"title": "是否新品"
+				},
+				"hot": {
+					"bsonType": "bool",
+					"description": "是否热销"
+				},
+				"added_date": {
+					"bsonType": "timestamp",
+					"description": "上架时间",
+					"defaultValue": {
+						"$env": "now"
+					}
+				},
+				"last_modified_date": {
+					"bsonType": "timestamp",
+					"description": "最后修改时间",
+					"defaultValue": {
+						"$env": "now"
+					}
+				},
+				"seller_note": {
+					"bsonType": "string",
+					"description": "商家备注，仅商家可见",
+					"permission": {
+						"read": false
+					}
+				},
+				"shop_name": {
+					"bsonType": "string",
+					"description": "店铺名"
+				},
+				"tags": {
+					"bsonType": "array",
+					"description": "商品标签"
+				},
+				"special_tag": {
+					"bsonType": "string",
+					"description": "特殊标签"
+				}
+			}
+		}
+	}
+}

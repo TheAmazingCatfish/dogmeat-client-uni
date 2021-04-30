@@ -1,0 +1,68 @@
+{
+    "pages": [
+        {
+            "path": "pages/Home/Home",
+            "style": {
+                "enablePullDownRefresh": true,
+                "navigationBarTitleText": "Dogmeat"
+            }
+
+        },
+        {
+            "path": "pages/Cart/Cart",
+            "style": {
+                "enablePullDownRefresh": true,
+                "navigationBarTitleText": "购物车"
+            }
+
+        },
+        {
+            "path": "pages/User/User",
+            "style": {
+                "navigationBarTextStyle": "black",
+                "navigationBarTitleText": "个人中心",
+                "navigationBarBackgroundColor": "#FEDBD0",
+                "app-plus": {
+                    // "titleNView": false
+                }
+            }
+        },
+        {
+            "path" : "pages/User/Login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+        {
+            "path" : "pages/User/Options",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户选项",
+                "navigationBarTextStyle": "black",
+                "navigationBarBackgroundColor": "#FEDBD0",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+        {
+            "path" : "pages/Product/Product",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom" 
+            }
+            
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "Dogmeat",
+        "navigationBarBackgroundColor": "#FEDBD0",
+        "backgroundColor": "#FEDBD0",
+        "app-plus": {
+            "background": "#efeff4"
+        }
+    }
+}
