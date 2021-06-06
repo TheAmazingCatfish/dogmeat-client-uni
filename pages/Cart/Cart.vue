@@ -1,59 +1,91 @@
 <template>
-	<view v-if="loggedIn" class="list">
-		<!-- 刷新页面后的顶部提示框 -->
-		<!-- 当前弹出内容没有实际逻辑 ，可根据当前业务修改弹出提示 -->
-		<view class="tips" :class="{ 'tips-ani': tipShow }">为您更新了10条最新新闻动态</view>
-		<uni-list>
-			<!-- to 属性携带参数跳转详情页面，当前只为参考 -->
-			<uni-list-item
-                class="uni-list-item--waterfall" title="自定义商品列表"
-                v-for="cartItem in cartItems" :key="cartItem._id"
-                :border="true"
-                :to="'/pages/Product/Product?id='+cartItem.product._id+'&title='+cartItem.product.name"
-            >
-				<!-- 通过header插槽定义列表左侧图片 -->
-				<template v-slot:header>
-					<view class="uni-thumb shop-picture">
-						<image :src="cartItem.product.thumbnail" mode="aspectFill" />
-					</view>
-				</template>
-				<!-- 通过body插槽定义商品布局 -->
-				<template #body class="shop">
-					<view>
-						<view class="uni-title">
-							<text class="uni-ellipsis-2">{{ cartItem.product.name }}</text>
-						</view>
-						<view>
-							<text class="uni-tag hot-tag">{{ cartItem.product.goods_tip }}</text>
-							<text v-for="tag in cartItem.product.tag" :key="tag" class="uni-tag">{{ tag }}</text>
-						</view>
-					</view>
-					<view>
-						<view class="shop-price">
-							<text>¥</text>
-							<text class="shop-price-text">{{ cartItem.product.price }}</text>
-							<text>.00</text>
-						</view>
-						<view class="uni-note">{{ cartItem.product.comment_count }}条评论 月销量 {{ cartItem.product.month_sell_count }}</view>
-						<view class="uni-note ellipsis">
-							<text class="uni-ellipsis-1">{{ cartItem.product.shop_name }}</text>
-							<text class="uni-link">进店 ></text>
-						</view>
-					</view>
-				</template>
-			</uni-list-item>
-		</uni-list>
-	</view>
-	<view v-else>
+    <view v-if="!loggedIn" class="cart--user-not-logged-in">
         <text>您还未登陆，先去登录吧~</text>
-        <navigator url="../User/User">
-            <button class="dogmeat">去登录</button>
+        <navigator open-type="navigateBack">
+            <button class="to-login dogmeat">去登录</button>
         </navigator>
+    </view>
+    <view v-else-if="cartItemCount < 1" class="cart--empty">
+        <text>购物车空空如也，先去逛逛吧~</text>
+        <navigator url="/pages/user/login">
+            <button class="to-login dogmeat">去逛逛</button>
+        </navigator>
+    </view>
+    <view v-else class="list">
+        <!-- 刷新页面后的顶部提示框 -->
+        <!-- 当前弹出内容没有实际逻辑 ，可根据当前业务修改弹出提示 -->
+        <view class="tips" :class="{ 'tips-ani': tipShow }">为您更新了购物车信息</view>
+        <uni-list v-if="cartItems">
+            <!-- to 属性携带参数跳转详情页面，当前只为参考 -->
+            <uni-list-item
+                class="uni-list-item--waterfall" title="自定义商品列表"
+                v-for="cartItem of cartItems" :key="cartItem._id"
+                :border="true"
+                :to="`/pages/product/product?id=${cartItem.product._id}&title=${cartItem.product.name}`"
+            >
+                <!-- 通过header插槽定义列表左侧图片 -->
+                <template #header>
+                    <view class="d-flex align-center">
+                        <checkbox :value="cartItem._id" @tap.stop />
+                    </view>
+                </template>
+                <!-- 通过body插槽定义商品布局 -->
+                <template #body>
+                    <view class="d-flex">
+                        <view class="uni-thumb product-image">
+                            <image :src="cartItem.product.thumbnail" mode="aspectFill" />
+                            
+                            <overlay v-if="item.stock < 1" absolute>
+                                <view class="tip-sold-out">
+                                    <text>无货</text>
+                                    <text>----- · -----</text>
+                                    <text>Sold out</text>
+                                </view>
+                            </overlay>
+                        </view>
+                        
+                        <view class="shop">
+                            <view>
+                                <view class="uni-title">
+                                    <text class="ellipsis-2">{{ cartItem.product.name }}</text>
+                                </view>
+                                
+                                <text class="uni-tag hot-tag">{{ cartItem.product.special_tag }}</text>
+                            </view>
+                            
+                            <view class="d-flex justify-space-between">
+                                <view class="product-price">
+                                    <text>¥</text>
+                                    <text class="product-price__int-part">{{ cartItem.product.price / 100 }}</text>
+                                    <text>.{{ `${ cartItem.product.price % 100 }`.padStart(2, '0') }}</text>
+                                </view>
+                                
+                                <uni-number-box
+                                    :value="cartItem.quantity"
+                                    :min="1"
+                                    :max="cartItem.product.stock"
+                                    @change="changeCartItemQuantity(cartItem._id, $event)"
+                                    @tap.stop
+                                />
+                            </view>
+                        </view>
+                    </view>
+                </template>
+            </uni-list-item>
+        </uni-list>
+        
+        <view v-if="cartItemCount > 0" class="bottom-nav floating-object">
+            <label>
+                <checkbox /><text>全选</text>
+            </label>
+            
+            <button class="proceed-to-checkout dogmeat">去结算</button>
+        </view>
     </view>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
     components: {},
@@ -63,34 +95,41 @@ export default {
         };
     },
     computed: {
-        ...mapState('user', [
+        ...mapGetters('user', [
             'loggedIn'
         ]),
         ...mapState('cart', {
-            cartItems: 'items'
+            cartItems: 'items',
+            cartItemCount: 'itemCount'
         })
     },
-    onShow() {
+    async onShow() {
         if (this.loggedIn && !this.cartItems) {
-            this.$store.dispatch('cart/getItems');
+            uni.showLoading();
+            await this.$store.dispatch('cart/getItems');
+            uni.hideLoading();
         }
     },
-    methods: {
-        /**
-         * 下拉刷新回调函数
-         */
-        async onPullDownRefresh() {
-            this.tipShow = true
-            this.formData.status = 'more'
+    /**
+     * 下拉刷新回调函数
+     */
+    async onPullDownRefresh() {
+        this.tipShow = true;
+        if (this.loggedIn) {
             await this.$store.dispatch('cart/getItems');
-            this.tipShow = false;
-            uni.stopPullDownRefresh();
-        },
-        /**
-         * 上拉加载回调函数
-         */
-        onReachBottom() {
-            
+        }
+        this.tipShow = false;
+        uni.stopPullDownRefresh();
+    },
+    /**
+     * 上拉加载回调函数
+     */
+    onReachBottom() {
+        
+    },
+    methods: {
+        changeCartItemQuantity(id, quantity) {
+            console.log(quantity);
         }
     }
 };
@@ -101,9 +140,22 @@ page {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: #efeff4;
     min-height: 100%;
     height: auto;
+}
+
+.cart--user-not-logged-in,
+.cart--empty {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button.to-login {
+    margin: $uni-spacing-row-lg;
+    width: 150px;
 }
 
 .tips {
@@ -131,9 +183,24 @@ page {
     justify-content: space-between;
 }
 
-.shop-picture {
+.product-image {
+    position: relative;
     width: 110px;
     height: 110px;
+}
+
+.tip-sold-out {
+    $size: 100px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: rgba($shrine-pink-900, .7);
+    color: white;
 }
 
 .shop-picture-column {
@@ -142,13 +209,13 @@ page {
     margin-bottom: 10px;
 }
 
-.shop-price {
+.product-price {
     margin-top: 5px;
     font-size: 12px;
     color: #ff5a5f;
 }
 
-.shop-price-text {
+.product-price__int-part {
     font-size: 16px;
 }
 
@@ -181,7 +248,7 @@ page {
     text-overflow: ellipsis;
 }
 
-.uni-ellipsis-2 {
+.ellipsis-2 {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -197,7 +264,7 @@ page {
         /* #ifndef H5 || APP-VUE */
         // 小程序 编译后会多一层标签，而其他平台没有，所以需要特殊处理一下
         /deep/ .uni-list {
-            /* #endif */
+        /* #endif */
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -218,10 +285,25 @@ page {
                 }
             }
 
-            /* #ifndef H5 || APP-VUE */
+        /* #ifndef H5 || APP-VUE */
         }
-
         /* #endif */
     }
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    padding: $uni-spacing-col-lg $uni-spacing-row-lg;
+    width: 100%;
+    background-color: $shrine-pink-50;
+}
+
+button.proceed-to-checkout {
+    margin: 0;
+    width: calc(375rpx - #{$uni-spacing-row-lg} * 2);
 }
 </style>

@@ -29,7 +29,8 @@
 				default: ''
 			},
 			color: {
-				type: String
+				type: String,
+				// default: '#333333'
 			},
 			size: {
 				type: [Number, String],

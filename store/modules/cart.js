@@ -4,7 +4,7 @@ export default {
     namespaced: true,
     state: () => ({
         items: null,
-        itemCount: 0
+        itemCount: undefined
     }),
     getters: {
         totalPrice({ items, itemCount }) {
@@ -61,7 +61,7 @@ export default {
                     }
                     
                     const { updated } = await request('changeCartItemQuantity', {
-                        id: cartItem._id,
+                        _id: cartItem._id,
                         quantity: cartItem.quantity + quantity,
                         updateDate: true
                     });
@@ -70,6 +70,11 @@ export default {
                         dispatch('getItems');
                     }
                 }
+                
+                uni.showToast({
+                    icon: 'success',
+                    title: '添加成功~'
+                });
             } catch (error) {
                 console.error(error);
                 uni.showToast({

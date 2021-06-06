@@ -1,0 +1,124 @@
+{
+    "bsonType": "object",
+    "required": ["consignee", "mobile", "area_code", "details"],
+    "permission": {
+        "read": "doc.user_id == auth.uid",
+        "create": true,
+        "update": "doc.user_id == auth.uid",
+        "delete": "doc.user_id == auth.uid"
+    },
+    "properties": {
+        "_id": {
+            "description": "ID，系统自动生成"
+        },
+        "user_id": {
+            "bsonType": "string",
+            "description": "用户id，参考uni-id-users表",
+            "forceDefaultValue": {
+                "$env": "uid"
+            },
+            "foreignKey": "uni-id-users._id"
+        },
+        "consignee": {
+            "bsonType": "string",
+            "description": "收货人姓名",
+            "title": "收货人",
+            "trim": "both",
+            "errorMessage": {
+                "required": "{label}还没填哦~"
+            }
+        },
+        "alias": {
+            "bsonType": "string",
+            "description": "地址别名，例如：家、公司、学校",
+            "title": "标签",
+            "trim": "both",
+            "maxLength": 5,
+            "errorMessage": {
+                "maxLength": "{label}最多5个字哦~"
+            }
+        },
+        "mobile": {
+            "bsonType": "string",
+            "description": "手机号码，加密存储",
+            "title": "手机号",
+            "pattern": "^\\+?[0-9-]{3,20}$",
+            "trim": "both",
+            "errorMessage": {
+                "required": "别忘了填{label}哦~",
+                "pattern": "{label}输错了吧，要不您再看看~"
+            }
+        },
+        "mobile_area_code": {
+            "bsonType": "string",
+            "description": "国际区号，中国大陆为 +86",
+            "title": "国际区号",
+            "trim": "both",
+            "defaultValue": "+86"
+        },
+        "province_code": {
+            "bsonType": "string",
+            "description": "省级编码，冗余存储",
+            "title": "省级编码"
+        },
+        "city_code": {
+            "bsonType": "string",
+            "description": "地级编码，冗余存储",
+            "title": "地级编码"
+        },
+        "area_code": {
+            "bsonType": "string",
+            "description": "省市区，区级编码",
+            "title": "区级编码",
+            "foreignKey": "opendb-city-china.code",
+            "enumType": "tree",
+            "enum": {
+                "collection": "opendb-city-china",
+                "orderby": "value asc",
+                "field": "code as value, name as text, eq(type, 2) as isleaf"
+            },
+            "errorMessage": {
+                "required": "请选择{label}哦~"
+            }
+        },
+        "general": {
+            "bsonType": "string",
+            "description": "地址的大体位置，包含省份、城市、区县、乡镇",
+            "title": "所在地区",
+            "trim": "both"
+        },
+        "details": {
+            "bsonType": "string",
+            "description": "省市区后面的详细地址，包含街道小区房间号",
+            "title": "详细地址",
+            "trim": "both",
+            "errorMessage": {
+                "required": "填一下{label}吧~"
+            }
+        },
+        "formatted_address": {
+            "bsonType": "string",
+            "description": "完整地址信息，包括省市区及街道小区房间号",
+            "trim": "both"
+        },
+        "zip_code": {
+            "bsonType": "string",
+            "description": "邮政编码",
+            "title": "邮政编码",
+            "trim": "both"
+        },
+        "email": {
+            "bsonType": "string",
+            "description": "邮箱",
+            "title": "邮箱",
+            "format": "email",
+            "trim": "both"
+        },
+        "is_default": {
+            "bsonType": "bool",
+            "description": "是否为默认地址",
+            "title": "默认地址",
+            "defaultValue": false
+        }
+    }
+}

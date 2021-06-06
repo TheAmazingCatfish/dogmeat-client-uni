@@ -1,7 +1,7 @@
 {
     "pages": [
         {
-            "path": "pages/Home/Home",
+            "path": "pages/home/home",
             "style": {
                 "enablePullDownRefresh": true,
                 "navigationBarTitleText": "Dogmeat"
@@ -9,7 +9,7 @@
 
         },
         {
-            "path": "pages/Cart/Cart",
+            "path": "pages/cart/cart",
             "style": {
                 "enablePullDownRefresh": true,
                 "navigationBarTitleText": "购物车"
@@ -17,7 +17,7 @@
 
         },
         {
-            "path": "pages/User/User",
+            "path": "pages/user/user",
             "style": {
                 "navigationBarTextStyle": "black",
                 "navigationBarTitleText": "个人中心",
@@ -28,7 +28,7 @@
             }
         },
         {
-            "path" : "pages/User/Login",
+            "path" : "pages/user/login",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -37,7 +37,7 @@
             
         },
         {
-            "path" : "pages/User/Options",
+            "path" : "pages/user/options",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "用户选项",
@@ -48,10 +48,28 @@
             
         },
         {
-            "path" : "pages/Product/Product",
+            "path" : "pages/product/product",
             "style" :                                                                                    
             {
                 "navigationStyle": "custom" 
+            }
+            
+        }
+        ,{
+            "path" : "pages/address/address",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/address/addresses",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "地址管理",
+                "enablePullDownRefresh": false
             }
             
         }
@@ -64,5 +82,15 @@
         "app-plus": {
             "background": "#efeff4"
         }
+    },
+    "condition" : { //模式配置，仅开发期间生效
+        "current": 0, //当前激活的模式(list 的索引项)
+        "list": [
+            {
+                "name": "addresses", //模式名称
+                "path": "pages/address/addresses", //启动页面，必选
+                "query": "" //启动参数，在页面的onLoad函数里面得到
+            }
+        ]
     }
 }

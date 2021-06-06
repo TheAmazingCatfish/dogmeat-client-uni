@@ -6,14 +6,15 @@
         
         <unicloud-db
             ref="udbProducts"
-            v-slot:default="{ data, loading, error, options }"
+            #default="{ data, loading, error, options }"
             collection="opendb-mall-goods"
             field="description,keywords,name,pictures,price,special_tag,stock,thumbnail"
             getone
-            manual
+            loadtime="onready"
             :where="query"
         >
             <view v-if="error">{{ error.message }}</view>
+            
             <template v-else>
                 <swiper class="product-pictures" indicator-dots>
                     <template v-if="data.pictures">
@@ -24,7 +25,7 @@
                             <image class="product-picture" :src="picture" mode="aspectFill" />
                         </swiper-item>
                     </template>
-                    <swiper-item v-else class="d-flex justify-center align-center">
+                    <swiper-item v-else-if="!loading" class="d-flex justify-center align-center">
                         <text class="uni-title">暂无图片</text>
                     </swiper-item>
                 </swiper>
@@ -36,16 +37,20 @@
                 
                 <view class="product-title">{{ data.name }}</view>
                 
-                <button class="add-to-cart dogmeat" :disabled="data.stock <= 0" @tap="addProductToCart(data)">
-                    <uni-icons class="icon" type="plus-filled" size="20" />
-                    <text>{{ data.stock > 0 ? '加入购物车' : '已售罄' }}</text>
+                <button class="add-to-cart dogmeat" :disabled="data.stock < 1" @tap="addProductToCart(data)">
+                    <text v-if="loading">加载中...</text>
+                    
+                    <template v-else>
+                        <uni-icons class="icon" type="plus-filled" size="20" />
+                        <text>{{ data.stock > 0 ? '加入购物车' : '已售罄' }}</text>
+                    </template>
                 </button>
                 
                 <rich-text :nodes="data.description" />
             </template>
         </unicloud-db>
         
-        <navigator class="shopping-cart" url="../Cart/Cart">
+        <navigator class="shopping-cart" url="/pages/cart/cart">
             <uni-icons class="icon" type="cart-filled" size="24" />
             <image
                 v-for="cartItem in twoCartItemsMostRecentlyAdded" :key="cartItem._id"
@@ -73,7 +78,7 @@ export default {
         statusBarHeight() {
             return uni.getSystemInfoSync().statusBarHeight;
         },
-        ...mapState('user', [
+        ...mapGetters('user', [
             'loggedIn'
         ]),
         ...mapState('cart', {
@@ -84,8 +89,8 @@ export default {
             return this.cartItems ? this.cartItems.slice(0, 2) : [];
         }
     },
-    onLoad(option) {
-        const productId = option.id;
+    onLoad(query) {
+        const productId = query.id;
         if (productId) {
             this.productId = productId;
         } else {
@@ -107,6 +112,21 @@ export default {
     methods: {
         previewImage: uni.previewImage,
         addProductToCart(product, quantity = 1) {
+            if (!this.loggedIn) {
+                uni.showModal({
+                    content: '还未登录，先去登录吧~',
+                    confirmText: '去登录',
+                    success(response) {
+                        if (response.confirm) {
+                            uni.navigateTo({
+                                url: '/pages/user/login'
+                            });
+                        }
+                    }
+                });
+                return;
+            }
+            
             this.$store.dispatch('cart/addProduct', { product, quantity });
         }
     }

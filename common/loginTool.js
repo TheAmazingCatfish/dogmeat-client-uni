@@ -14,13 +14,18 @@ async function checkToken() {
         if (token) {
             uni.setStorageSync('uni_id_token', token);
             uni.setStorageSync('uni_id_token_expired', tokenExpired);
+            store.commit('user/SET_TOKEN', { token, tokenExpires: tokenExpired });
         }
+        
+        return result;
     } catch (error) {
         console.error(error);
         uni.showModal({
             showCancel: false,
             content: '请求云函数失败，请稍后再试'
         });
+        
+        return Promise.reject(error);
     }
 }
 
@@ -35,7 +40,7 @@ function getCode(provider) {
                 reject(err);
             }
         })
-    })
+    });
 }
 
 async function loginByWeixin() {
@@ -71,13 +76,17 @@ async function loginByWeixin() {
         uni.setStorageSync('uni_id_token', token);
         uni.setStorageSync('uni_id_token_expired', tokenExpired);
         uni.setStorageSync('user_info', userInfo);
-        store.dispatch('user/login', userInfo);
+        store.dispatch('user/login', { userInfo, token, tokenExpires: tokenExpired });
+        
+        return result;
     } catch (error) {
         console.error(error)
         uni.showModal({
             showCancel: false,
             content: '登录失败，请稍后再试'
         });
+        
+        return Promise.reject(error);
     }
 }
 
@@ -88,21 +97,17 @@ async function autoLogin() {
     // if (!authSetting['scope.userInfo']) return;
     
     // 判断是否保存有用户信息，若没有，则不自动登录
-    const userInfo = uni.getStorageSync('user_info');
-    if (!userInfo) return;
+    if (!store.state.user.info) return;
     
     // 判断 token 是否过期，若过期，则重新登录；若到达刷新阈值，则刷新 token
-    const tokenExpires = uni.getStorageSync('uni_id_token_expired');
-    if (tokenExpires < Date.now()) {
+    const tokenExpires = store.state.user.tokenExpires;
+    if (tokenExpires <= Date.now()) {
         // #ifdef MP-WEIXIN
-        return loginByWeixin();
+        loginByWeixin();
         // #endif
-    }
-    if (tokenExpires - Date.now() < 600000) {
+    } else if (tokenExpires - Date.now() <= 600000) {
         checkToken();
     }
-    
-    store.dispatch('user/login', userInfo);
 }
 
 export { checkToken, getCode, loginByWeixin, autoLogin };

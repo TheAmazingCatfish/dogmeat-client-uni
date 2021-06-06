@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import App from './App';
 import store from './store';
-Vue.prototype.$store = store;
+
+import request from 'common/request';
+Vue.prototype.$request = request;
 
 Vue.config.productionTip = false;
 

@@ -1,5 +1,10 @@
 <template>
     <view>
+        <navigator class="setting" url="/pages/address/addresses">
+            <text>地址管理</text>
+            <uni-icons type="arrowright" />
+        </navigator>
+        
         <button class="logout dogmeat" type="warn" @tap="logout">登出</button>
     </view>
 </template>
@@ -43,6 +48,13 @@ export default {
 </script>
 
 <style lang="scss">
+.setting {
+    display: flex;
+    justify-content: space-between;
+    padding: $uni-spacing-row-lg;
+    color: $shrine-pink-900;
+}
+
 button.logout {
     &::after {
         background-color: $uni-color-accent;

@@ -39,12 +39,16 @@ export default {
 </script>
 
 <style lang="scss">
+page {
+    height: 100%;
+}
+
 .login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background-color: $shrine-pink-50;
 }
 

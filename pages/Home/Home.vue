@@ -10,11 +10,11 @@
         <view class="list">
             <!-- 刷新页面后的顶部提示框 -->
             <!-- 当前弹出内容没有实际逻辑 ，可根据当前业务修改弹出提示 -->
-            <view class="tips" :class="{ 'tips-ani': tipShow }">为您更新了10条最新新闻动态</view>
+            <view class="tips" :class="{ 'tips-ani': tipShow }">为您更新了商品信息</view>
             
             <unicloud-db
                 ref="udb"
-                v-slot:default="{ data, loading, error, options }"
+                #default="{ data, loading, error, options }"
                 :options="formData"
                 :collection="collection"
                 :field="field"
@@ -28,14 +28,22 @@
                     <uni-list-item
                         class="uni-list-item--waterfall"
                         v-for="item in data" :key="item._id"
-                        :to="'/pages/Product/Product?id='+item._id+'&title='+item.name"
+                        :to="`/pages/product/product?id=${item._id}&title=${item.name}`"
                         title="自定义商品列表"
                         :border="false"
                     >
                         <!-- 通过header插槽定义列表左侧图片 -->
-                        <template v-slot:header>
-                            <view class="uni-thumb shop-picture shop-picture-column">
+                        <template #header>
+                            <view class="uni-thumb product-image product-image-column">
                                 <image :src="item.thumbnail" mode="aspectFill" />
+                                
+                                <overlay v-if="item.stock < 1" absolute>
+                                    <view class="tip-sold-out">
+                                        <text>无货</text>
+                                        <text>----- · -----</text>
+                                        <text>Sold out</text>
+                                    </view>
+                                </overlay>
                             </view>
                         </template>
                         
@@ -82,18 +90,13 @@
 </template>
 
 <script>
-import BottomNav from '@/components/BottomNav/BottomNav.vue';
-
 export default {
-    components: {
-        BottomNav
-    },
     data() {
         return {
             // 数据表名
             collection: 'opendb-mall-goods',
             // 查询字段，多个字段用 , 分割
-            field: 'thumbnail,name,special_tag,tags,price,comment_count,monthly_sales,shop_name',
+            field: 'thumbnail,name,special_tag,tags,price,stock,comment_count,monthly_sales,shop_name',
             formData: {
                 status: 'loading', // 加载状态
             },
@@ -106,24 +109,24 @@ export default {
          * 下拉刷新回调函数
          */
         onPullDownRefresh() {
-            this.tipShow = true
-            this.formData.status = 'more'
+            this.tipShow = true;
+            this.formData.status = 'more';
             this.$refs.udb.loadData({
                 clear: true
             }, () => {
-                this.tipShow = false
-                uni.stopPullDownRefresh()
-            })
+                this.tipShow = false;
+                uni.stopPullDownRefresh();
+            });
         },
         /**
          * 上拉加载回调函数
          */
         onReachBottom() {
-            this.$refs.udb.loadMore()
+            this.$refs.udb.loadMore();
         },
         load(data, ended) {
             if (ended) {
-                this.formData.status = 'noMore'
+                this.formData.status = 'noMore';
             }
         }
     }
@@ -165,15 +168,30 @@ page {
     justify-content: space-between;
 }
 
-.shop-picture {
+.product-image {
     width: 110px;
     height: 110px;
 }
 
-.shop-picture-column {
+.product-image-column {
+    position: relative;
     width: 100%;
     height: 170px;
     margin-bottom: 10px;
+}
+
+.tip-sold-out {
+    $size: 100px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: rgba($shrine-pink-900, .7);
+    color: white;
 }
 
 .shop-price {

@@ -1,0 +1,41 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": ["user_id"],
+	"permission": {
+		"read": "doc.user_id == auth.uid",
+		"create": true,
+		"update": "doc.user_id == auth.uid",
+		"delete": "doc.user_id == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "用户ID",
+			"forceDefaultValue": {
+				"$env": "uid"
+			},
+			"foreignKey": "uni-id-users._id"
+		},
+		"items": {
+			"bsonType": "array",
+			"arrayType": "object",
+			"description": "购物车内的物品，一个对象数组",
+			"properties": {
+				"product_id": {
+					"bsonType": "string",
+					"description": "商品ID",
+					"foreignKey": "opendb-mall-goods._id"
+				},
+				"quantity": {
+					"bsonType": "int",
+					"description": "商品数量",
+					"minimum": 1
+				}
+			}
+		}
+	}
+}

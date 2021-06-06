@@ -15,14 +15,14 @@
                 <view class="avatar">
                     <uni-icons type="person-filled" size="24" color="white" />
                 </view>
-                <navigator url="/pages/User/Login">
-                    <button class="username text-button">登录/注册</button>
+                <navigator url="/pages/user/login">
+                    <button class="username plain">登录/注册</button>
                 </navigator>
             </template>
         </view>
         
         <view v-if="loggedIn" class="right">
-            <navigator url="../User/Options">
+            <navigator url="/pages/user/options">
                 <uni-icons class="icon-options" type="gear" size="24" />
             </navigator>
         </view>
@@ -39,12 +39,10 @@ export default {
         };
     },
     computed: {
-        ...mapState('user', [
-            'loggedIn'
-        ]),
         ...mapGetters('user', [
-            'username',
-            'avatarURL'
+            'loggedIn',
+            'avatarURL',
+            'username'
         ])
     }
 }

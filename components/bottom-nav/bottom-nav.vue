@@ -1,14 +1,14 @@
 <template>
     <view class="bottom-nav">
         <view class="avatar-base">
-            <view class="background"></view>
+            <view class="avatar-base__background"></view>
             
-            <navigator url="../Cart/Cart" style="position: relative;">
+            <navigator url="/pages/cart/cart" style="position: relative;">
                 <uni-icons class="icon-cart" type="cart-filled" size="24" />
             </navigator>
         </view>
             
-        <navigator url="../User/User">
+        <navigator url="/pages/user/user">
             <!-- #ifdef MP-WEIXIN -->
             <open-data
                 v-if="loggedIn"
@@ -39,11 +39,8 @@ export default {
         };
     },
     computed: {
-        ...mapState('user', [
-            'loggedIn'
-            
-        ]),
         ...mapGetters('user', [
+            'loggedIn',
             'avatarURL'
         ])
     }
@@ -73,19 +70,20 @@ $bottom-nav-height: 44px;
         height: $bottom-nav-height;
         padding-left: 32px;
         box-shadow: 0 0 5px 1px grey;
-        // clip-path: path('M 32 0 H 74 A 34 34 0 0 0 142 0 H 150 V 44 H 0 V 32 Z');
+        // 微信小程序不支持 path()
+        // clip-path: path('M 32 0 H 78 A 32 32 0 0 0 142 0 H 150 V 44 H 0 V 32 Z');
         clip-path: polygon($ab-half-circle-radius 0, 100% 0, 100% 100%, 0 100%, 0 $ab-half-circle-radius);
         overflow: hidden;
+    }
         
-        >.background {
-            position: absolute;
-            right: $ab-right-width - $ab-background-border-width;
-            bottom: $bottom-nav-height - $ab-background-radius;
-            width: $ab-background-radius * 2;
-            height: $ab-background-radius * 2;
-            border: $ab-background-border-width solid $shrine-pink-50;
-            border-radius: 50%;
-        }
+    .avatar-base__background {
+        position: absolute;
+        right: $ab-right-width - $ab-background-border-width;
+        bottom: $bottom-nav-height - $ab-background-radius;
+        width: $ab-background-radius * 2;
+        height: $ab-background-radius * 2;
+        border: $ab-background-border-width solid $shrine-pink-50;
+        border-radius: 50%;
     }
     
     $avatar-radius: 27px;
