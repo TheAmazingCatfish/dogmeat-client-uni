@@ -85,6 +85,14 @@
             </unicloud-db>
         </view>
         
+        <button
+            class="floating-action-button scroll-to-top"
+            :class="{ hidden: !showScrollToTopButton }"
+            @click="scrollToTop"
+        >
+            <uni-icons type="arrowup" />
+        </button>
+        
         <bottom-nav />
 	</view>
 </template>
@@ -100,29 +108,42 @@ export default {
             formData: {
                 status: 'loading', // 加载状态
             },
+            showScrollToTopButton: false,
             tipShow: false // 是否显示顶部提示框
         };
     },
     onLoad() {},
+    /**
+     * 下拉刷新回调函数
+     */
+    onPullDownRefresh() {
+        this.tipShow = true;
+        this.formData.status = 'more';
+        this.$refs.udb.loadData({
+            clear: true
+        }, () => {
+            this.tipShow = false;
+            uni.stopPullDownRefresh();
+        });
+    },
+    /**
+     * 上拉加载回调函数
+     */
+    onReachBottom() {
+        this.$refs.udb.loadMore();
+    },
+    onPageScroll(event) {
+        if (event.scrollTop > 400) {
+            this.showScrollToTopButton = true;
+        } else {
+            this.showScrollToTopButton = false;
+        }
+    },
     methods: {
-        /**
-         * 下拉刷新回调函数
-         */
-        onPullDownRefresh() {
-            this.tipShow = true;
-            this.formData.status = 'more';
-            this.$refs.udb.loadData({
-                clear: true
-            }, () => {
-                this.tipShow = false;
-                uni.stopPullDownRefresh();
+        scrollToTop() {
+            uni.pageScrollTo({
+                scrollTop: 0
             });
-        },
-        /**
-         * 上拉加载回调函数
-         */
-        onReachBottom() {
-            this.$refs.udb.loadMore();
         },
         load(data, ended) {
             if (ended) {
@@ -250,6 +271,7 @@ page {
 .list {
     // position: fixed;
     height: 100%;
+    padding-bottom: 44px;
     background-color: white;
     overflow: scroll;
     
@@ -286,5 +308,12 @@ page {
     }
 }
 
-
+button.scroll-to-top {
+    position: fixed;
+    left: 13px;
+    bottom: 17px;
+    background-color: $shrine-pink-900;
+    color: white;
+    opacity: .9;
+}
 </style>

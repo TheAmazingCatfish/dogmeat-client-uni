@@ -70,7 +70,17 @@ function changeCartItemQuantity({ _id, quantity, updateDate = false }) {
         .update(data);
 }
 
-function removeProductFromCart() {}
+function removeItemFromCart() {}
+
+function increaseCartItemQuantity({ _id, increment }) {
+    uniCloud.callFunction({
+        name: 'api',
+        data: {
+            action: 'shoppingCart/increaseItemQuantity',
+            data: { _id, increment }
+        }
+    });
+}
 
 const apis = {
     addAddress,
@@ -80,7 +90,7 @@ const apis = {
     addProductToCart,
     getCartItems,
     changeCartItemQuantity,
-    removeProductFromCart
+    removeItemFromCart
 };
 
 export default apis;

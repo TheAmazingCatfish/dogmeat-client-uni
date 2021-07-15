@@ -27,7 +27,7 @@ export default {
             commit('SET_TOKEN', { token, tokenExpires });
         },
         logout({ commit }) {
-            commit('cart/SET_ITEMS', null, { root: true });
+            commit('cart/SET_ITEMS', [], { root: true });
             commit('cart/SET_ITEM_COUNT', undefined, { root: true });
         	
         	uni.removeStorageSync('user_info');

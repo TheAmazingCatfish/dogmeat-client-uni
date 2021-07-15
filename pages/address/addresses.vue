@@ -19,7 +19,9 @@
                         
                         <view class="consignee-info">
                             <text class="consignee">{{ address.consignee }}</text>
-                            <text>{{ address.mobile.replace(/(?<=^\d{3})\d{4}/, '****') }}</text>
+                            
+                            <!-- 使用 Lookbehind assertion /(?<=^\d{3})\d{4}/，eslint 会报错 -->
+                            <text>{{ address.mobile.replace(/(^\d{3})\d{4}/, '$1****') }}</text>
                         </view>
                     </view>
                 </template>
@@ -38,6 +40,15 @@
             <uni-icons type="plusempty" size="20" />
             <text> 新建收货地址</text>
         </button>
+        
+        <!-- #ifdef H5 -->
+        <overlay v-show="loadingAddressData">
+            <progress-circular indeterminate>loading...</progress-circular>
+        </overlay>
+        <!-- #endif -->
+        <!-- #ifndef H5 -->
+        <uni-load-more v-show="loadingAddressData" iconType="circle" status="loading" />
+        <!-- #endif -->
     </view>
 </template>
 
@@ -45,7 +56,8 @@
 export default {
     data() {
         return {
-            addresses: []
+            addresses: [],
+            loadingAddressData: false
         };
     },
     onLoad() {
@@ -56,7 +68,7 @@ export default {
     },
     methods: {
         async getAddresses() {
-            uni.showLoading();
+            this.loadingAddressData = true;
             
             try {
                 const { data } = await this.$request('getAddresses');
@@ -68,7 +80,7 @@ export default {
                     title: error.message
                 });
             } finally {
-                uni.hideLoading();
+                this.loadingAddressData = false;
             }
         },
         goToAddressEditor(action, address) {

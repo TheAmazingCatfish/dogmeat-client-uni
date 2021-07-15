@@ -26,7 +26,7 @@
                 <!-- 通过header插槽定义列表左侧图片 -->
                 <template #header>
                     <view class="d-flex align-center">
-                        <checkbox :value="cartItem._id" @tap.stop />
+                        <checkbox :value="cartItem._id" :checked="selectedCartItems.has(cartItem._id)" @tap.stop="toggleCartItemSelection(cartItem._id)" />
                     </view>
                 </template>
                 <!-- 通过body插槽定义商品布局 -->
@@ -76,7 +76,7 @@
         
         <view v-if="cartItemCount > 0" class="bottom-nav floating-object">
             <label>
-                <checkbox /><text>全选</text>
+                <checkbox :checked="allCartItemsSelected" @click="allCartItemsSelected ? deselectAllCartItems() : selectAllCartItems()" /><text>全选</text>
             </label>
             
             <button class="proceed-to-checkout dogmeat">去结算</button>
@@ -91,6 +91,7 @@ export default {
     components: {},
     data() {
         return {
+            selectedCartItems: new Set(),
             tipShow: false // 是否显示顶部提示框
         };
     },
@@ -101,10 +102,13 @@ export default {
         ...mapState('cart', {
             cartItems: 'items',
             cartItemCount: 'itemCount'
-        })
+        }),
+        allCartItemsSelected() {
+            return this.selectedCartItems.size == this.cartItems.length;
+        }
     },
     async onShow() {
-        if (this.loggedIn && !this.cartItems) {
+        if (this.loggedIn && this.cartItemCount === undefined) {
             uni.showLoading();
             await this.$store.dispatch('cart/getItems');
             uni.hideLoading();
@@ -130,6 +134,20 @@ export default {
     methods: {
         changeCartItemQuantity(id, quantity) {
             console.log(quantity);
+        },
+        selectAllCartItems() {
+            this.selectedCartItems = new Set(this.cartItems.map(cartItem => cartItem._id));
+        },
+        deselectAllCartItems() {
+            this.selectedCartItems = new Set();
+        },
+        toggleCartItemSelection(id) {
+            if (this.selectedCartItems.has(id)) {
+                this.selectedCartItems.delete(id);
+            } else {
+                this.selectedCartItems.add(id);
+            }
+            this.selectedCartItems = new Set(this.selectedCartItems)
         }
     }
 };

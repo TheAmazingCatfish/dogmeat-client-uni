@@ -57,7 +57,7 @@
                 :src="cartItem.product.thumbnail"
                 mode="aspectFill"
             />
-            <text v-if="cartItemCount - 2 > 0">{{ `+${cartItemCount - 2}` }}</text>
+            <text v-if="cartItemCount > 2">{{ `+${cartItemCount - 2}` }}</text>
         </navigator>
     </view>
 </template>
@@ -86,7 +86,7 @@ export default {
             cartItemCount: 'itemCount'
         }),
         twoCartItemsMostRecentlyAdded() {
-            return this.cartItems ? this.cartItems.slice(0, 2) : [];
+            return this.cartItems.slice(0, 2);
         }
     },
     onLoad(query) {
@@ -100,7 +100,7 @@ export default {
         }
     },
     onShow() {
-        if (this.loggedIn && !this.cartItems) {
+        if (this.loggedIn && this.cartItemCount === undefined) {
             this.$store.dispatch('cart/getItems');
         }
     },

@@ -4,7 +4,7 @@
     "required": ["user_id", "product_id", "quantity", "date_added"],
     "permission": {
         "read": "doc.user_id == auth.uid",
-        "create": true,
+        "create": "auth.uid != null",
         "update": "doc.user_id == auth.uid",
         "delete": "doc.user_id == auth.uid"
     },

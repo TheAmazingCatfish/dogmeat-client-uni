@@ -1,6 +1,6 @@
 <template>
     <view class="uni-container">
-        <uni-forms ref="form" :modelValue="address" :rules="rules" validate-trigger="submit" err-show-type="toast">
+        <uni-forms ref="form" label-width="70" :modelValue="address" :rules="rules" validate-trigger="submit" err-show-type="toast">
             <uni-forms-item name="consignee" label="收货人" required>
                 <uni-easyinput v-model="address.consignee" placeholder="收货人姓名" trim="both" />
             </uni-forms-item>
@@ -206,7 +206,7 @@ export default {
                         });
                         
                         if (deleted > 0) {
-                            setTimeout(() => this.eventChannel.emit('addressDataUpdated'), 400);
+                            this.eventChannel.emit('addressDataUpdated');
                         }
                         setTimeout(() => uni.navigateBack(), 500);
                     } catch (error) {
@@ -243,17 +243,17 @@ export default {
                     });
                     
                     if (id || updated > 0) {
-                        setTimeout(() => this.eventChannel.emit('addressDataUpdated'), 400);
+                        this.eventChannel.emit('addressDataUpdated');
                     }
                     setTimeout(() => uni.navigateBack(), 500);
                 } catch (error) {
                     console.log(error);
                 }
             } catch (error) {
-                uni.showToast({
-                    icon: 'none',
-                    title: error[0].errorMessage
-                });
+                // uni.showToast({
+                //     icon: 'none',
+                //     title: error[0].errorMessage
+                // });
             } finally {
                 uni.hideLoading();
             }
@@ -299,7 +299,6 @@ export default {
 .uni-input-border {
     padding: 0 10px;
     height: 35px;
-
 }
 
 .uni-textarea-border {

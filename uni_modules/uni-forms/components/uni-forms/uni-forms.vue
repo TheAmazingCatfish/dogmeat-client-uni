@@ -89,7 +89,7 @@ export default {
 		// label 宽度，单位 px
 		labelWidth: {
 			type: [String, Number],
-			default: 65
+			default: ''
 		},
 		// label 居中方式，可选值 left/center/right
 		labelAlign: {
@@ -153,6 +153,9 @@ export default {
 		registerWatch() {
 			// 取消监听,避免多次调用 init 重复执行 $watch
 			this.unwatchs.forEach(v => v());
+			this.childrens.forEach((v)=>{
+				v.init()
+			})
 			// watch 每个属性 ，需要知道具体那个属性发变化
 			Object.keys(this.dataValue).forEach(key => {
 				let watch = this.$watch(

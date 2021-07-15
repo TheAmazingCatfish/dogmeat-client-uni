@@ -3,12 +3,19 @@ import request from "@/common/request";
 export default {
     namespaced: true,
     state: () => ({
-        items: null,
+        items: [],
         itemCount: undefined
     }),
     getters: {
-        totalPrice({ items, itemCount }) {
-            return ;
+        getTotalPriceOfSelectedItems: state => ids => {
+            let total = 0;
+            
+            ids.forEach(id => {
+                const { product } = state.items.find(item => item._id == id);
+                total += product.price * product.quantity;
+            });
+            
+            return total;
         }
     },
     mutations: {
@@ -39,14 +46,14 @@ export default {
             
             try {
                 if (!cartItem) {
-                    const { id: _id } = await request('addProductToCart', {
+                    const { id } = await request('addProductToCart', {
                         product_id: product._id,
                         quantity
                     });
                         
-                    if (_id) {
+                    if (id) {
                         commit('ADD_ITEM', {
-                            _id,
+                            _id: id,
                             product,
                             quantity,
                             date_added: Date.now()
@@ -87,14 +94,14 @@ export default {
             try {
                 const { data, count } = await request('getCartItems');
                 
-                const cartItems = count > 0 ?
-                    data.map(({ _id, product_id, quantity, date_added }) => ({
+                if (count > 0) {
+                    const cartItems = data.map(({ _id, product_id, quantity, date_added }) => ({
                         _id,
                         product: product_id[0],
                         quantity,
                         date_added
-                    })) :
-                    [];
+                    }));
+                }
                 
                 commit('SET_ITEMS', cartItems);
                 commit('SET_ITEM_COUNT', count);
